@@ -30,3 +30,5 @@ var logOdds = function(i){
 }
 // 10 까지 숫자중에 홀수만 호출
 repeat1(10, logOdds);
+
+//js

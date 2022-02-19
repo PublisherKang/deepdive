@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 제어 탐색 하기</title>
+</head>
+<body>
+    <ul id="item_list">
+        <li class="item1"></li>
+        <li class="item2"></li>
+        <li class="item3"></li>
+    </ul>
+
+    <ul id="no_item"></ul>    
+    <script>
+        const itemList = document.getElementById('item_list');
+        const NoItem = document.getElementById('no_item');
+
+        console.log(itemList.childNodes);
+        // NodeList(7) [text, li.item1, text, li.item2, text, li.item3, text]
+
+        console.log(itemList.children);
+        // HTMLcollection(3) [li.item1, li.item2, li.item3]
+
+        console.log(itemList.firstChild);
+        // #text
+
+        console.log(itemList.lastChild);
+        // #text
+
+        console.log(itemList.firstElementChild);
+        // <li class="item1"></li>
+
+        console.log(itemList.lastElementChild);
+        // <li class="item3"></li>
+
+        console.log(NoItem.childNodes);
+        //
+
+        //자식 노드의 확인하기 haschildNodes
+        console.log(itemList.hasChildNodes());
+        // true
+        console.log(NoItem.hasChildNodes());
+        // false
+
+        // 만약 NoItem의 태그가 한칸 내려온다면 공백이 생겨 true를 반환한다.
+        
+        console.log(!!itemList.children.length);
+        // 3
+        console.log(!!NoItem.children.length);
+        // 0
+
+        console.log(!!itemList.childElementCount);
+        // 3
+        console.log(!!NoItem.childElementCount);
+        // 0
+
+
+    </script>
+</body>
+</html>

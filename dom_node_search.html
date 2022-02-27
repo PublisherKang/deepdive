@@ -56,6 +56,42 @@
         console.log(!!NoItem.childElementCount);
         // 0
 
+        //부모 노드 탐색, 부모노드는 텍스트 노드인 경우는 없다.
+        const item2 = document.querySelector(".item2");
+        console.log(item2.parentNode);
+        //ul#item_list
+
+        //형제 노드 탐색하기
+
+        //첫번째 자식 = text 또는 element
+        const { firstChild } = itemList;
+        console.log(firstChild);
+        // #text
+
+        // 첫번째 자식의 다음 형제, text 또는 element
+        const { nextSibling } = firstChild;
+        console.log(nextSibling);
+        // li.item1
+
+        // 이전 형제, text 또는 element
+        const { previousSibling } = nextSibling;
+        console.log(previousSibling);
+        // #text
+
+        // 첫번째 자식, element
+        const { firstElementChild } = itemList;
+        console.log(firstElementChild);
+        // li.item1
+
+        //다음 형제, element
+        const { nextElementSibling } = firstElementChild;
+        console.log(nextElementSibling);
+        // li.item2
+        
+        //이전 형제, element
+        const { previousElementSibling } = nextElementSibling;
+        console.log(previousElementSibling);
+        // li.item1
 
     </script>
 </body>

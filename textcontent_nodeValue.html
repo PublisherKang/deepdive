@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="foo">Hello</div>
+    <script>
+        console.log(document.nodeValue);
+        //null
+
+        const $foo = document.getElementById("foo");
+        console.log($foo.nodeValue);
+        //null
+
+        console.log($foo.firstChild.nodeValue);
+        //Hello
+
+        $foo.firstChild.nodeValue = "Hi";
+        //nodeValue는 직접 변경하지 않고, firstChild를 통해 해당 자식의 text값을 불러와서 사용해 줘야한다.
+
+    </script>
+    
+    <!-- textContent 사용하기. -->
+    <div id="foo2">Hello <span>World</span></div>
+    <script>
+        const $foo2 = document.getElementById("foo2");
+
+        console.log($foo2.textContent);
+        console.log($foo2.textContent = "Hi");
+        //textContent 사용시 foo2안의 마크업 (span)태그는 무시되고 변경된다.
+    </script>
+
+    <div id="foo3">Hello <span>World</span></div>
+    <script>
+        const $foo3 = document.getElementById("foo3");
+        
+        console.log($foo3.textContent = "Hello <span>World</span>");
+        //span은 태그가 아닌 모두 문자로 인식된다.
+    </script>
+
+    <div id="foo4">Hello <span>World</span></div>
+    <script>
+        const $foo4 = document.getElementById("foo4");
+        $foo4.firstChild.nodeValue = "Hi ";
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="item_list">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+    <script>
+        const itemList = document.getElementById("item_list");
+
+        const $li = document.createElement("li");
+        $li.appendChild(document.createTextNode("item4"));
+        
+        // itemList.insertBefore($li, itemList.lastElementChild);
+        // itemList.insertBefore($li, null);
+        itemList.insertBefore($li, itemList.firstElementChild);
+        //item1
+        //item2
+        //item4
+        //item3
+
+    </script>
+</body>
+</html>

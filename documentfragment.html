@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="items"></ul>
+    <script>
+        const items = document.getElementById("items");
+        let itemList = ["item1", "item2", "item3"];
+        
+        const fragment = document.createDocumentFragment();
+        //비어있는 DocumentFragment노드 생성
+        
+        itemList.forEach(addText => {
+            const $li = document.createElement("li");
+
+            $li.textContent = addText;
+
+            fragment.appendChild($li);
+        //fragment에 li반복 추가
+        });
+        
+        items.appendChild(fragment);
+        // 리플로우와 리페인트는 한번만 실행된다.
+    </script>
+</body>
+</html>

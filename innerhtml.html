@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="foo">Hello <span>World</span></div>
+    <script>
+        const $foo = document.getElementById("foo");
+        console.log($foo.innerHTML);
+
+        //innerHtml은 크로스사이트스크립팅 공격에 취약점이 있다.
+
+        $foo.innerHTML += "<br>" + "Hi <span>John</span>";
+
+        // 해당 태그의 내용을 변경하지 않으려면 += 를 사용하자.
+        //기존 Hello world는 그대로 있는것이 아니라 삭제되고 스크립트에 의해 다시 추가된다.
+        //기존 돔의 모든 자식요소가 삭제되고 새로운 노드로 반영된 것이다.
+        console.log($foo.insertAdjacentHTML());
+
+        //innerHTML의 단점은 내가 원하는 위치에 반영할 수 없다.
+
+        //원하는 위치에 반영하고싶다면
+        //insertAdjacentHTML을 사용하자.
+        //첫번째 인수로 "beforebegin", "afterbegin", "beforeend", "afterend"를 사용할 수 있다.
+
+        $foo.insertAdjacentHTML("afterend", "Hi");
+
+        // insertAdjacentHTML은 기존요소에 영향을 주지 않고 innerHTML보다 빠르다.
+        // innerHTML과 같이 크로스사이트스크립팅 공격에 취약하다는 것은 동일하다.
+    </script>
+</body>
+</html>

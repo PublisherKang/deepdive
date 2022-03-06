@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="user" value="hello">
+    <script>
+        const $input = document.getElementById("user");
+
+        const inputValue = $input.getAttribute("value");
+        console.log(inputValue);
+        //hello값이 그대로 저장되어있다.
+
+        //input value값 변경
+        $input.setAttribute("value", "hi");
+        console.log($input.getAttribute("value"));
+
+        if($input.hasAttribute("value")){
+            console.log("bye");
+        }
+
+        $input.removeAttribute("value");
+        console.log($input.getAttribute("value"));
+        //null
+
+        $input.addEventListener("keydown", function(){
+            console.log(this.getAttribute("value"));
+        });
+    </script>
+</body>
+</html>

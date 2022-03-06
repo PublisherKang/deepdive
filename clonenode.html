@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="item_list">
+        <li>item1</li>
+    </ul>
+    <script>
+        const itemList = document.getElementById("item_list");
+        const item1 = itemList.firstElementChild;
+
+        //얕은 복사, 엘리먼트 li만 복사된다.
+        const shallowClone = item1.cloneNode();
+        console.log(shallowClone);
+
+        //텍스트 추가
+        shallowClone.textContent = "item2";
+        //자식 요소로 추가
+        itemList.appendChild(shallowClone);
+        
+        // true를 전달하면 깊은 복사가 된다.
+        const deepClone = itemList.cloneNode(true);
+        console.log(deepClone);
+        
+        itemList.appendChild(deepClone);
+    </script>
+</body>
+</html>

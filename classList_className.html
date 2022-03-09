@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="item list"></div>
+    <script>
+        const item = document.querySelector(".item");
+
+        console.log(item.className);
+        // item list
+        // 클래스를 모두 문자열로 반환한다 (공백포함).
+
+        console.log(item.classList);
+        // DOMTokenList(2) 클래스를 배열로 반환한다.
+
+        // add() 클래스 추가
+        item.classList.add("i");
+        console.log(item.classList);
+        // 배열 ["item", "list", "i"]
+        // value값이 존재한다. 문자열로 반환된다.
+        console.log(item.classList.value);
+        // item list i
+
+        // remove() 클래스 제거
+        item.classList.remove("i");
+        console.log(item.classList);
+
+        // replace 클래스 이름 변경
+        item.classList.replace("item", "red");
+        console.log(item.classList);
+        // 배열 ["red", "list"]
+
+        // item(index) 메서드를 사용할 수 있다.
+        console.log(item.classList.item(0));
+
+        // 첫번째 red 문자열
+        console.log(item.classList.item(1));
+        // 두번째 list 문자열
+        
+        //contains 클래스 문자열 어트리뷰트가 포함되어있는지를 확인
+        console.log(item.classList.contains("red"));
+        // true
+        console.log(item.classList.contains("green"));
+        // false
+
+        //toggle 클래스가 존재하면 제거하고 없으면 추가한다.
+        item.classList.toggle("add");
+        console.log(item.classList);
+        // 배열 ["red", "list", "add"];
+        item.classList.toggle("add");
+        console.log(item.classList);
+        // 배열 ["red", "list"];
+
+        //toggle은 두번째 인수로 true와 false를 추가하면 강제로 추가 제거할 수 있다.
+        item.classList.toggle("hello", true);
+        item.classList.toggle("hello", false);
+    </script>
+</body>
+</html>

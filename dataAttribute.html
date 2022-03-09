@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="users">
+        <li id="1" data-user-id="1111" data-role="admin">Kang</li>
+        <li id="2" data-user-id="2222" data-role="sub">Kim</li>
+    </ul>
+    <script>
+        const users = [...document.querySelector('.users').children];
+
+        // console.log(user);
+        const user = users.find(user => user.dataset.userId === "1111");
+        console.log(user);
+        /// user id가 1111인 요소 노드
+        console.log(user.dataset.role);
+        // data-role 취득 admin
+
+        user.dataset.role = "us";
+        // data role의 값 변경
+
+        console.log(user.dataset);
+
+    </script>
+</body>
+</html>

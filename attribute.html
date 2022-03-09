@@ -26,9 +26,16 @@
         console.log($input.getAttribute("value"));
         //null
 
-        $input.addEventListener("keydown", function(){
-            console.log(this.getAttribute("value"));
+        //사용자의 input입력 할때 이벤트 발생하기
+        $input.addEventListener("keyup", function(){
+            console.log(this.value);
+            if(this.value === "가"){
+                alert("가");
+                this.value = "";
+            }
         });
+
+        //getAttribute와 setAttribute는 지정한 HTML요소의 초기 상태값을 가져오거나 변경한다.
     </script>
 </body>
 </html>

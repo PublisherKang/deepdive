@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #items{display: flex; list-style-type: none; padding: 0;}
+        #items li{width: 100%; cursor: pointer;}
+        #items .active{color: red; text-decoration: underline;}
+    </style>
+</head>
+<body>
+    <ul id="items">
+        <li id="item1">item1</li>
+        <li id="item2">item2</li>
+        <li id="item3">item3</li>
+    </ul>
+    <div>내비게이션 아이템 : <span class="msg">item1</span> </div>
+    <script>
+        const items = document.getElementById("items");
+        const msg = document.querySelector(".msg");
+
+        function activate({target}){
+            if(!target.matches('#items > li')) return;
+
+            [...items.children].forEach(items => {
+                items.classList.toggle("active", items === target);
+                msg.textContent = target.id + " " + target.className;
+            });
+            console.log(target);
+        }
+
+        items.onclick = activate;
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=p, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>클릭 좌표 표시</p>
+    <span class="message"></span>
+    <script>
+        const msg = document.querySelector(".message");
+        function show(e){
+            msg.textContent = `clientX : ${e.clientX}, clientY : ${e.clientY}`;
+        }
+        document.onclick = show;
+        
+        
+    </script>
+</body>
+</html>
